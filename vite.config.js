@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 
 export default defineConfig({
+  base: './',  // <-- Add this line for correct asset paths on Netlify
   plugins: [
     react(),
     VitePWA({
@@ -27,7 +28,6 @@ export default defineConfig({
         ],
       },
       workbox: {
-        // Cache everything under /src and index.html
         globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
       }
     })
